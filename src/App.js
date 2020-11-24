@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+
+import { Redirect, Route, Switch } from 'react-router-dom';
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"//bootstrape  use korar jonno npm install bootstrap@5.0.0-alpha3 or copy CDN link from bootstrape//
+import "../../node_modules/bootstrap/dist/js/bootstrap.bundle"//bootstrape use korar jonno npm install bootstrap@5.0.0-alpha3 or copy CDN link from bootstrape//
 import './App.css';
+import Home from './components/Home';
+import About from './components/About';
+import Service from './components/Service';
+import Contact from './components/Contact';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/about" component={About}></Route>
+          <Route exact path="/service" component={Service}></Route>
+          <Route exact path="/contact" component={Contact}></Route>
+          <Redirect to="/"></Redirect> //404 er poriborte//
+        </Switch>
+        <Footer></Footer>
+    </>
   );
 }
 
